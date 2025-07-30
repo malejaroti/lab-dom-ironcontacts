@@ -90,38 +90,38 @@ threeContacts.forEach(contact => {
 // Bonus: ITERATION 4 - Add Random Contacts
 
 // Your code goes here ...
-const randomIndex2 = Math.floor(Math.random() * contacts.length);
-const splicedArr2 = contacts.splice(randomIndex, 1);
-
-// Get the element from the spliced array
-const randomContact2 = splicedArr[0];
-
-const randomRow = document.createElement("tr");
-randomRow.innerHTML = `
-  <td>
-    <img src="${randomContact2.pictureUrl}" />
-  </td>
-  <td> ${randomContact2.name} </td>
-  <td> ${randomContact2.popularity.toFixed(2)} </td>
-  <td>
-    <button class="btn-delete">Delete</button>
-  </td>
-  <td>
-    <button class="btn-like">
-      <img src="./images/icon.png" alt="like" />
-    </button>
-  </td>
-`;
-  const deleteButton = randomRow.querySelector(".btn-delete")
-  deleteButton.addEventListener("click", () =>{
-    randomRow.remove()
-  })
-
-  const likeButton = randomRow.querySelector(".btn-like")
-  likeButton.addEventListener("click", () =>{
-    likeButton.classList.toggle("selected")
-  })
 
 buttonAddRandom.addEventListener("click", () => {
+  const randomIndex2 = Math.floor(Math.random() * contacts.length);
+  const splicedArr2 = contacts.splice(randomIndex2, 1);
+  
+  // Get the element from the spliced array
+  const randomContact2 = splicedArr2[0];
+  
+  const randomRow = document.createElement("tr");
+  randomRow.innerHTML = `
+    <td>
+      <img src="${randomContact2.pictureUrl}" />
+    </td>
+    <td> ${randomContact2.name} </td>
+    <td> ${randomContact2.popularity.toFixed(2)} </td>
+    <td>
+      <button class="btn-delete">Delete</button>
+    </td>
+    <td>
+      <button class="btn-like">
+        <img src="./images/icon.png" alt="like" />
+      </button>
+    </td>
+  `;
+    const deleteButton = randomRow.querySelector(".btn-delete")
+    deleteButton.addEventListener("click", () =>{
+      randomRow.remove()
+    })
+  
+    const likeButton = randomRow.querySelector(".btn-like")
+    likeButton.addEventListener("click", () =>{
+      likeButton.classList.toggle("selected")
+    })
   tableBody.appendChild(randomRow);
 })
